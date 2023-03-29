@@ -1,11 +1,18 @@
+import Img from '../assests/1.png'
+
 export default function Header({ handlePrint }) {
   return (
     <>
+    <img alt={"MY"}  src={Img} style={{height:'250px'}} />
+            
+
       <header className="flex flex-col items-center justify-center mb-5 xl:flex-row xl:justify-between">
         <div>
-          <h1 className="font-bold uppercase tracking-wide text-4xl mb-3">
-            Invoicer
-          </h1>
+
+          <h2 className="font-bold uppercase tracking-wide text-4xl mb-3" style={{marginTop:'-25%'}}>
+
+            Invoice
+          </h2>
         </div>
 
         {/* <div>

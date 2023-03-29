@@ -12,7 +12,7 @@ export default function DonateButton() {
           Support Me On Patreon
         </button>
       </a> */}
-      <div className="flex">
+      {/* <div className="flex">
         <a
           href="https://www.paypal.com/donate/?hosted_button_id=U6J5KFC2KH8XG"
           target="_blank"
@@ -21,7 +21,7 @@ export default function DonateButton() {
         >
           Donate to Creator
         </a>
-      </div>
+      </div> */}
     </>
   );
 }
