@@ -1,7 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import ClientDetails from "./ClientDetails";
 import Dates from "./Dates";
-import Footer from "./Footer";
 import Header from "./Header";
 import MainDetails from "./MainDetails";
 import Notes from "./Notes";
@@ -11,23 +10,17 @@ import TableBilling from "./TableBilling";
 import TableFormBilling from "./TableFormBilling";
 import ReactToPrint from "react-to-print";
 import { DonateButton } from "../buttons";
-import Img from '../assests/1.png'
 
 
 function App() {
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
-  const [email, setEmail] = useState("");
   const [currency, setCurrency] = useState("");
-  const [phone, setPhone] = useState("");
-  const [bankName, setBankName] = useState("");
-  const [bankAccount, setBankAccount] = useState("");
-  const [website, setWebsite] = useState("");
+  
   const [clientName, setClientName] = useState("");
   const [clientAddress, setClientAddress] = useState("");
   const [invoiceNumber, setInvoiceNumber] = useState("");
   const [invoiceDate, setInvoiceDate] = useState("");
-  const [dueDate, setDueDate] = useState("");
   const [notes, setNotes] = useState("");
   const [description, setDescription] = useState("");
   const [quantity, setQuantity] = useState("");
@@ -170,19 +163,6 @@ function App() {
                   />
                 </div>
 
-
-                {/* <div className="flex flex-col">
-                  <label htmlFor="dueDate">Due Date</label>
-                  <input
-                    type="date"
-                    name="dueDate"
-                    id="dueDate"
-                    placeholder="Invoice Date"
-                    autoComplete="off"
-                    value={dueDate}
-                    onChange={(e) => setDueDate(e.target.value)}
-                  />
-                </div> */}
               </article>
               <label>Back Office</label>
                             <article>
@@ -267,7 +247,7 @@ function App() {
           <Dates
             invoiceNumber={invoiceNumber}
             invoiceDate={invoiceDate}
-            dueDate={dueDate}
+            dueDate={''}
           />
         </div>
       </div>

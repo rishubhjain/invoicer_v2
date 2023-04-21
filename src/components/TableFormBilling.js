@@ -46,9 +46,7 @@ export default function TableFormBilling({
 
   // Calculate items amount function
   useEffect(() => {
-    const calculateAmount = (amount) => {
-      setAmount(quantity * price)
-    }
+
 
     //calculateAmount(amount)
   }, [amount, price, quantity, setAmount])
