@@ -3,7 +3,7 @@ import Img from '../assests/1.png'
 export default function Header({ handlePrint }) {
   return (
     <>
-    <img alt={"MY"}  src={Img} style={{height:'250px'}} />
+    <img alt={"MY"}  src={Img} style={{height:'250px',marginTop:'-30px',zIndex:'1'}} />
             
 
       <header className="flex flex-col items-center justify-center mb-5 xl:flex-row xl:justify-between">

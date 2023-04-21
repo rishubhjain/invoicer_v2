@@ -176,7 +176,7 @@ export default function TableFormBilling({
 
       <div>
         <h2 className="flex items-end justify-end text-gray-800 text-4xl font-bold">
-          {currency} {total.toLocaleString()}
+        {currency} {total.toLocaleString()}
         </h2>
       </div>
     </>

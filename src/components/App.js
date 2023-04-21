@@ -9,7 +9,6 @@ import TableForm from "./TableForm";
 import TableBilling from "./TableBilling";
 import TableFormBilling from "./TableFormBilling";
 import ReactToPrint from "react-to-print";
-import { DonateButton } from "../buttons";
 
 
 function App() {
@@ -216,13 +215,11 @@ function App() {
 
             </div>
           </div>
-          <article className="mt-5">
-            <DonateButton />
-          </article>
+
         </section>
 
         {/* Invoice Preview */}
-        <div className="invoice__preview bg-white p-5 rounded">
+        <div className="invoice__preview bg-white p-5 rounded" style={{zIndex:'1000'}}>
           <ReactToPrint
             trigger={() => (
               <button className="bg-blue-500 ml-5 text-white font-bold py-2 px-8 rounded shadow border-2 border-blue-500 hover:bg-transparent hover:text-blue-500 transition-all duration-300">
@@ -231,7 +228,7 @@ function App() {
             )}
             content={() => componentRef.current}
           />
-          <div ref={componentRef} className="p-5" style={{backgroundImage:'../assests/1.png',backgroundSize:'covert',backgroundRepeat:'no-repeat'}}>
+          <div ref={componentRef} className="p-3" style={{backgroundImage:'../assests/1.png',backgroundSize:'covert',backgroundRepeat:'no-repeat'}}>
             <Header handlePrint={handlePrint} />
 
             <MainDetails name={name} address={address} />

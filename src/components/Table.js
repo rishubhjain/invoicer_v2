@@ -29,9 +29,8 @@ export default function Table({ list, total,currency }) {
       </table>
 
       <div>
-        <h2 className="flex items-end justify-end text-gray-800 text-4xl font-bold">
-          {currency} {total.toLocaleString()}
-        </h2>
+     <p className="flex items-end justify-end text-gray-800 text-2xl">Total Amount :   <b>{currency} {total.toLocaleString()}</b>   </p>
+         
       </div>
     </>
   )
