@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 @import url("https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@400;700&display=swap");
 
 :root {
@@ -9,6 +10,7 @@
   --red-card: #f12711;
   --yellow-card: #f5af19;
 }
+
 
 ::selection,
 ::-moz-selection {

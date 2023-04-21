@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from "uuid"
 import { toast, ToastContainer } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
 
-export default function TableForm({
+export default function TableFormBilling({
   description,
   setDescription,
   quantity,
@@ -24,7 +24,7 @@ export default function TableForm({
   const handleSubmit = (e) => {
     e.preventDefault()
 
-    if (!description || !quantity || !price) {
+    if ( !quantity || !price) {
       toast.error("Please fill in all inputs")
     } else {
       const newItems = {
@@ -83,38 +83,28 @@ export default function TableForm({
       <ToastContainer position="top-right" theme="colored" />
 
       <form onSubmit={handleSubmit}>
-        <div className="flex flex-col md:mt-16">
-          <label htmlFor="description">Item description</label>
-          <input
-            type="text"
-            name="description"
-            id="description"
-            placeholder="Item description"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-          />
-        </div>
+    
 
         <div className="md:grid grid-cols-3 gap-10">
           <div className="flex flex-col">
-            <label htmlFor="quantity">Quantity</label>
+            <label htmlFor="quantity">Monthly Collection</label>
             <input
               type="text"
               name="quantity"
               id="quantity"
-              placeholder="Quantity"
+              placeholder="Monthly Collection"
               value={quantity}
               onChange={(e) => setQuantity(e.target.value)}
             />
           </div>
 
           <div className="flex flex-col">
-            <label htmlFor="price">Price</label>
+            <label htmlFor="price">Percentage</label>
             <input
               type="text"
               name="price"
               id="price"
-              placeholder="Price"
+              placeholder="Percentage"
               value={price}
               onChange={(e) => setPrice(e.target.value)}
             />
@@ -126,7 +116,7 @@ export default function TableForm({
               type="text"
               name="price"
               id="price"
-              placeholder="Price"
+              placeholder="Amount"
               value={amount}
               onChange={(e) => setAmount(e.target.value)}
             />
@@ -145,9 +135,8 @@ export default function TableForm({
       <table width="100%" className="mb-10">
         <thead>
           <tr className="bg-gray-100 p-1">
-            <td className="font-bold">Description</td>
-            <td className="font-bold">Quantity</td>
-            <td className="font-bold">Price</td>
+            <td className="font-bold">Monthly Collection</td>
+            <td className="font-bold">Percentage</td>
             <td className="font-bold">Amount</td>
           </tr>
         </thead>

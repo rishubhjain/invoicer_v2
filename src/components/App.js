@@ -7,8 +7,12 @@ import MainDetails from "./MainDetails";
 import Notes from "./Notes";
 import Table from "./Table";
 import TableForm from "./TableForm";
+import TableBilling from "./TableBilling";
+import TableFormBilling from "./TableFormBilling";
 import ReactToPrint from "react-to-print";
 import { DonateButton } from "../buttons";
+import Img from '../assests/1.png'
+
 
 function App() {
   const [name, setName] = useState("");
@@ -30,6 +34,12 @@ function App() {
   const [amount, setAmount] = useState("");
   const [list, setList] = useState([]);
   const [total, setTotal] = useState(0);
+  const [descriptionBilling, setDescriptionBilling] = useState("");
+  const [quantityBilling, setQuantityBilling] = useState("");
+  const [priceBilling, setPriceBilling] = useState("");
+  const [amountBilling, setAmountBilling] = useState("");
+  const [listBilling, setListBilling] = useState([]);
+  const [totalBilling, setTotalBilling] = useState(0);
   const [width] = useState(641);
   // const [invoices, setInvoices] = useState([]);
 
@@ -85,7 +95,7 @@ function App() {
                   />
                 </div>
               </article>
-
+{/* 
               <article className="md:grid grid-cols-3 gap-10">
                 <div className="flex flex-col">
                   <label htmlFor="email">Enter your email</label>
@@ -155,7 +165,7 @@ function App() {
                     onChange={(e) => setBankAccount(e.target.value)}
                   />
                 </div>
-              </article>
+              </article> */}
 
               <article className="md:grid grid-cols-2 gap-10 md:mt-16">
                 <div className="flex flex-col">
@@ -175,10 +185,11 @@ function App() {
                   <label htmlFor="clientAddress">
                     Enter your client's address
                   </label>
-                  <input
+                  <textarea
                     type="text"
                     name="clientAddress"
                     id="clientAddress"
+
                     placeholder="Enter your client's address"
                     autoComplete="off"
                     value={clientAddress}
@@ -214,7 +225,7 @@ function App() {
                   />
                 </div>
 
-                <div className="flex flex-col">
+                {/* <div className="flex flex-col">
                   <label htmlFor="dueDate">Due Date</label>
                   <input
                     type="date"
@@ -225,9 +236,9 @@ function App() {
                     value={dueDate}
                     onChange={(e) => setDueDate(e.target.value)}
                   />
-                </div>
+                </div> */}
               </article>
-
+              <label>Back Office</label>
               {/* This is our table form */}
               <article>
                 <TableForm
@@ -245,13 +256,31 @@ function App() {
                   setTotal={setTotal}
                 />
               </article>
+              <label>Billing</label>
+
+              <article>
+                <TableFormBilling
+                  description={descriptionBilling}
+                  setDescription={setDescriptionBilling}
+                  quantity={quantityBilling}
+                  setQuantity={setQuantityBilling}
+                  price={priceBilling}
+                  setPrice={setPriceBilling}
+                  amount={amountBilling}
+                  setAmount={setAmountBilling}
+                  list={listBilling}
+                  setList={setListBilling}
+                  total={totalBilling}
+                  setTotal={setTotalBilling}
+                />
+              </article>
 
               <label htmlFor="notes">Additional Notes</label>
               <textarea
                 name="notes"
                 id="notes"
                 cols="30"
-                rows="10"
+                rows="5"
                 placeholder="Additional notes to the client"
                 value={notes}
                 onChange={(e) => setNotes(e.target.value)}
@@ -280,7 +309,7 @@ function App() {
             )}
             content={() => componentRef.current}
           />
-          <div ref={componentRef} className="p-5">
+          <div ref={componentRef} className="p-5" style={{backgroundImage:'../assests/1.png',backgroundSize:'covert',backgroundRepeat:'no-repeat'}}>
             <Header handlePrint={handlePrint} />
 
             <MainDetails name={name} address={address} />
@@ -295,7 +324,7 @@ function App() {
               invoiceDate={invoiceDate}
               dueDate={dueDate}
             />
-
+            <label>Back Office</label>
             <Table
               description={description}
               quantity={quantity}
@@ -306,10 +335,21 @@ function App() {
               total={total}
               setTotal={setTotal}
             />
+            <label>Billing</label>
 
+            <TableBilling
+              description={descriptionBilling}
+              quantity={quantityBilling}
+              price={priceBilling}
+              amount={amountBilling}
+              list={listBilling}
+              setList={setListBilling}
+              total={totalBilling}
+              setTotal={setTotalBilling}
+            />
             <Notes notes={notes} />
 
-            <Footer
+            {/* <Footer
               name={name}
               address={address}
               website={website}
@@ -317,7 +357,7 @@ function App() {
               phone={phone}
               bankAccount={bankAccount}
               bankName={bankName}
-            />
+            /> */}
           </div>
           {/* <button
             onClick={() => setShowInvoice(false)}
