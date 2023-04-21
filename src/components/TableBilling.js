@@ -1,6 +1,6 @@
 import React from "react"
 
-export default function Table({ list, total }) {
+export default function Table({ list, total,currency }) {
   return (
     <>
       <table width="100%" className="mb-10">
@@ -16,7 +16,9 @@ export default function Table({ list, total }) {
             <tbody>
               <tr className="h-10">
                 <td>{quantity}</td>
-                <td>{price}</td>
+                <td> {price.split('\n').map((line, index) => (
+          <p key={index}>{line}</p>
+        ))}</td>
                 <td>{amount}</td>
               </tr>
             </tbody>
@@ -26,7 +28,7 @@ export default function Table({ list, total }) {
 
       <div>
         <h2 className="flex items-end justify-end text-gray-800 text-4xl font-bold">
-          USD. {total.toLocaleString()}
+          {currency} {total.toLocaleString()}
         </h2>
       </div>
     </>

@@ -17,9 +17,9 @@ export default function TableForm({
   setList,
   total,
   setTotal,
+  currency,
 }) {
   const [isEditing, setIsEditing] = useState(false)
-
   // Submit form function
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -54,15 +54,15 @@ export default function TableForm({
 
   // Calculate total amount of items in table
   useEffect(() => {
-    let rows = document.querySelectorAll(".amount")
-    let sum = 0
+    // let rows = document.querySelectorAll(".amount")
+    // let sum = 0
 
-    for (let i = 0; i < rows.length; i++) {
-      if (rows[i].className === "amount") {
-        sum += isNaN(rows[i].innerHTML) ? 0 : parseInt(rows[i].innerHTML)
-        setTotal(sum)
-      }
-    }
+    // for (let i = 0; i < rows.length; i++) {
+    //   if (rows[i].className === "amount") {
+    //     sum += isNaN(rows[i].innerHTML) ? 0 : parseInt(rows[i].innerHTML)
+    //     setTotal(sum)
+    //   }
+    // }
   })
 
   // Edit function
@@ -81,9 +81,19 @@ export default function TableForm({
   return (
     <>
       <ToastContainer position="top-right" theme="colored" />
-
+      <div className="md:grid grid-cols-3 gap-5">
+          <label htmlFor="description">Total</label>
+          <input
+            type="text"
+            name="total"
+            id="total"
+            placeholder="Total"
+            value={total}
+            onChange={(e) => setTotal(e.target.value)}
+          />
+        </div>
       <form onSubmit={handleSubmit}>
-        <div className="flex flex-col md:mt-16">
+        <div className="flex flex-col md">
           <label htmlFor="description">Item description</label>
           <input
             type="text"
@@ -110,7 +120,7 @@ export default function TableForm({
 
           <div className="flex flex-col">
             <label htmlFor="price">Price</label>
-            <input
+            <textarea
               type="text"
               name="price"
               id="price"
@@ -157,7 +167,9 @@ export default function TableForm({
               <tr className="h-10">
                 <td>{description}</td>
                 <td>{quantity}</td>
-                <td>{price}</td>
+                <td> {price.split('\n').map((line, index) => (
+          <p key={index}>{line}</p>
+        ))}</td>
                 <td className="amount">{amount}</td>
                 <td>
                   <button onClick={() => editRow(id)}>
@@ -177,7 +189,7 @@ export default function TableForm({
 
       <div>
         <h2 className="flex items-end justify-end text-gray-800 text-4xl font-bold">
-          USD. {total.toLocaleString()}
+          {currency} {total.toLocaleString()}
         </h2>
       </div>
     </>
