@@ -138,7 +138,7 @@ function App() {
                 <div className="flex flex-col">
                   <label htmlFor="invoiceDate">Invoice Date</label>
                   <input
-                    type="date"
+                    type="text"
                     name="invoiceDate"
                     id="invoiceDate"
                     placeholder="Invoice Date"
