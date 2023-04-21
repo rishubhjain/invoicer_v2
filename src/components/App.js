@@ -113,7 +113,7 @@ function App() {
                     name="clientAddress"
                     id="clientAddress"
 
-                    placeholder="Enter your client's address"
+                    placeholder="Additional Details"
                     autoComplete="off"
                     value={clientAddress}
                     onChange={(e) => setClientAddress(e.target.value)}
